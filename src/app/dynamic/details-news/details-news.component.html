@@ -1,0 +1,90 @@
+<!-- <mat-toolbar color="primary">
+    Top Stories
+</mat-toolbar> -->
+
+<!-- <mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h1>Top Stories</h1>
+        <span class="menu-spacer"></span>
+        <div>
+            <a mat-button [routerLink]="'/accounts'"> Accounts </a>
+            <a mat-button [routerLink]="'/create-account'"> Create Account </a>
+            <a mat-button [routerLink]="'/contacts'"> Contacts </a>
+            <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
+            <a mat-button [routerLink]="'/activities'"> Activities </a>
+            <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar> -->
+
+
+<div style="height: 100vh;">
+
+    <mat-toolbar color="primary" class="global-search-box">
+
+        <button mat-icon-button>
+            <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+
+        <span>Top Stories</span>
+
+        <span class="example-spacer"></span>
+
+        <div fxShow="true" fxHide.lt-md="true">
+
+            <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+
+            <a href="#" mat-button>Menu Item 1</a>
+
+            <a href="#" mat-button>Menu Item 2</a>
+
+        </div>
+
+
+
+    </mat-toolbar>
+
+    <mat-sidenav-container fxFlexFill class="example-container">
+
+
+        <mat-sidenav #sidenav fxLayout="column">
+
+            <div fxLayout="column">
+                <a mat-button>World</a>
+                <a mat-button>Science</a>
+            </div>
+
+
+        </mat-sidenav>
+
+        <mat-sidenav-content fxFlexFill>
+
+
+            <div class="content">
+                <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                    <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let top_story of top_stories_list">
+                        <mat-card class="mat-elevation-z8" style="cursor: pointer;"
+                            (click)="detailsNews(top_story.short_url);">
+                            <img mat-card-image src="/assets/images/mountains.jpeg">
+                            <mat-card-header>
+                                <mat-card-title>{{top_story.title}}</mat-card-title>
+                            </mat-card-header>
+
+                            <mat-card-content>
+                                <p>{{top_story.abstract}}</p>
+                            </mat-card-content>
+                            <mat-card-subtitle style="font-size: 10px;text-align: end;">
+                                {{top_story.byline}}
+                            </mat-card-subtitle>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+</div>

@@ -1,0 +1,23 @@
+<div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <ng-container *ngFor="let top_story of top_stories_list">
+        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%"
+            *ngIf="top_story?.item_type =='Article' || top_story?.document_type =='article'">
+            <mat-card class="mat-elevation-z8" style="cursor: pointer;" (click)="detailsNews(top_story.url);">
+                <img mat-card-image src="{{top_story.multimedia?.[1]?.url ?
+                        top_story.multimedia[1].url : 
+                        'https://upload.wikimedia.org/wikipedia/commons/4/40/New_York_Times_logo_variation.jpg'}}">
+                <mat-card-header>
+                    <mat-card-title>{{top_story.title}}</mat-card-title>
+                </mat-card-header>
+
+                <mat-card-content>
+                    <p>{{top_story.abstract}}</p>
+                </mat-card-content>
+                <mat-card-subtitle style="font-size: 10px;text-align: end;">
+                    {{top_story.byline}}
+                </mat-card-subtitle>
+            </mat-card>
+        </div>
+    </ng-container>
+
+</div>

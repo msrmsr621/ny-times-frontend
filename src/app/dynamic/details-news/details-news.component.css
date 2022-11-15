@@ -1,0 +1,16 @@
+.content {
+    padding: 16px;
+}
+
+::ng-deep .mat-card-header-text {
+  /* CSS styles go here */
+  margin: 0px !important;
+}
+
+.mat-drawer{
+  width: 200px !important;
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button{
+  text-align: start !important;
+}

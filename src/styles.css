@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+/* start register, login css */
+
+.parent-container{
+  background: url("/assets/images/background_pic.jpg");
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 400px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: left;
+}
+
+.mat-card:not([class*=mat-elevation-z]){
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 40%), 0px 1px 1px 0px rgb(0 0 0 / 20%), 0px 1px 3px 0px rgb(0 0 0 / 50%) !important;
+}
+
+
+.submit-button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* end register, login */
+
+
+/* start dashboard */
+.dashboard-content {
+    padding: 16px;
+}
+
+.parentDiv{
+overflow:hidden;
+height: 100vh;
+}
+
+::ng-deep .mat-card-header-text {
+  /* CSS styles go here */
+  margin: 0px !important;
+}
+
+.mat-drawer{
+  width: 250px !important;
+}
+
+.mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button{
+  text-align: start !important;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.example-form {
+  max-width: fit-content;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+/* end dashboard */

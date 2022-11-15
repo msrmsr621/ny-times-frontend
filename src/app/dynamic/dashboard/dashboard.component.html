@@ -1,0 +1,117 @@
+<div class='parentDiv'>
+
+
+    <mat-toolbar color="primary" class="global-search-box">
+
+        <mat-toolbar-row>
+            <div class="mr-3" style="flex: 1;">
+                <button mat-icon-button>
+                    <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+                </button>
+                <span>Top Stories</span>
+            </div>
+
+            <div fxShow="true" fxHide.lt-md="true" style="flex: 5;">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width">
+                        <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
+                            [matAutocomplete]="auto" [(ngModel)]="search_query">
+                        <mat-autocomplete #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
+
+                    </mat-form-field>
+                    <button mat-button mat-stroked-button (click)="searchArticle()">
+                        <mat-icon>search</mat-icon>
+                    </button>
+                </form>
+            </div>
+        </mat-toolbar-row>
+
+        <span class="example-spacer"></span>
+
+
+        <mat-toolbar-row fxHide="true" fxShow.lt-md="true">
+            <form class="example-form">
+                <mat-form-field class="example-full-width">
+                    <input type="text" placeholder="Pick one" aria-label="Number" matInput [formControl]="myControl"
+                        [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete">
+                        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option}}
+                        </mat-option>
+                    </mat-autocomplete>
+                    <!-- <mat-icon matSuffix>search</mat-icon> -->
+                </mat-form-field>
+                <mat-icon>search</mat-icon>
+                <!-- <button mat-button mat-stroked-button>
+                    
+                    Search
+                </button> -->
+            </form>
+        </mat-toolbar-row>
+
+
+
+
+
+
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <!-- <div fxShow="true" fxHide.lt-md="true">
+            <a href="#" mat-button>Menu Item 1</a>
+            <a href="#" mat-button>Menu Item 2</a>
+        </div> -->
+
+
+    </mat-toolbar>
+
+    <mat-sidenav-container fxFlexFill class="example-container">
+
+        <mat-sidenav #sidenav fxLayout="column">
+
+            <ng-material-multilevel-menu [configuration]='config' [items]='appitems'
+                (selectedItem)="selectedItem($event)">
+            </ng-material-multilevel-menu>
+
+
+        </mat-sidenav>
+
+        <mat-sidenav-content fxFlexFill>
+
+            <!-- Copyright 2022 Google LLC. All Rights Reserved.
+                Use of this source code is governed by an MIT-style license that
+                can be found in the LICENSE file at https://angular.io/license -->
+
+            <div class="dashboard-content">
+                <div fxLayout="row wrap" fxLayoutGap="16px grid">
+                    <ng-container *ngFor="let top_story of top_stories_list">
+                        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngIf="top_story?.item_type =='Article'">
+                            <mat-card class="mat-elevation-z8" style="cursor: pointer;"
+                                (click)="detailsNews(top_story.url);">
+                                <img mat-card-image
+                                    src="{{top_story.multimedia?.[1]?.url ?
+                                        top_story.multimedia[1].url : 
+                                        'https://upload.wikimedia.org/wikipedia/commons/4/40/New_York_Times_logo_variation.jpg'}}">
+                                <mat-card-header>
+                                    <mat-card-title>{{top_story.title}}</mat-card-title>
+                                </mat-card-header>
+
+                                <mat-card-content>
+                                    <p>{{top_story.abstract}}</p>
+                                </mat-card-content>
+                                <mat-card-subtitle style="font-size: 10px;text-align: end;">
+                                    {{top_story.byline}}
+                                </mat-card-subtitle>
+                            </mat-card>
+                        </div>
+                    </ng-container>
+
+                </div>
+            </div>
+        </mat-sidenav-content>
+
+    </mat-sidenav-container>
+
+</div>

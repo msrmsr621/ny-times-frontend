@@ -1,0 +1,21 @@
+@import url("../../../styles.css");
+
+@media screen and (max-width: 700px) {
+  .register-page 
+  .mat-card {
+    max-width: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    overflow: auto;
+    width: 90% !important;
+  }
+  .mat-form-field {
+    min-width: 200px !important;
+    width: 100% !important;
+  }
+  form{
+    width: 100% !important;
+  }
+  
+}

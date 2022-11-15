@@ -1,0 +1,17 @@
+::ng-deep .global-search-box .mat-form-field-appearance-legacy .mat-form-field-infix{
+    height: 50px;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+::ng-deep .global-search-box  .mat-button{
+    margin-inline-start: 10px;
+}
+
+::ng-deep .global-search-box .example-full-width{
+    min-width: 100px !important;
+}
+
+::ng-deep .global-search-box .example-form{
+    max-width: 85% !important;
+}
